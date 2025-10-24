@@ -1,0 +1,116 @@
+@use "../../assets/styles/variables" as *;
+
+.berriesList {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .noBerries {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (min-width: $tablet-width) {
+    .searchBar {
+      max-width: 300px;
+    }
+  }
+}
+
+.berryItem {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  .content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    .info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .imageContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+        min-width: 50px;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top: 2px solid $color-border;
+        border-bottom: 2px solid $color-border;
+        border-right: 2px solid $color-border;
+
+        img {
+          height: 30px;
+          object-fit: contain;
+        }
+      }
+
+      .name {
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+
+    .flavors {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      flex-shrink: 1;
+      padding: 0 12px;
+
+      &::-webkit-scrollbar {
+        height: 1px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 2px;
+      }
+
+      .flavor {
+        display: inline-block;
+        padding: 6px 16px;
+        background-color: $color-background-chip;
+        color: $color-secondary;
+        border-radius: 16px;
+        font-size: 10px;
+        text-transform: lowercase;
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  @media (min-width: $tablet-width) {
+    .content {
+      .flavors {
+        gap: 8px;
+
+        &::-webkit-scrollbar {
+          height: 2px;
+        }
+
+        .flavor {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
