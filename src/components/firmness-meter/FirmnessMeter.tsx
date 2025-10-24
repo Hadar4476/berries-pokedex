@@ -1,8 +1,9 @@
-import { FIRMNESS_LEVEL, type BerryPokedex } from "@/types";
 import { useMemo } from "react";
+import useResponsive from "@/hooks/useResponsive";
+
+import { FIRMNESS_LEVEL, type BerryPokedex } from "@/types";
 
 import styles from "./FirmnessMeter.module.scss";
-import useResponsive from "@/hooks/useResponsive";
 
 interface FirmnessMeterProps {
   pokedex: BerryPokedex;

@@ -1,7 +1,14 @@
 import { useEffect, useMemo, useReducer, useRef } from "react";
+import { useDebounce } from "@/hooks/useDebounce";
 
 import { fetchBerryData, initPokedex } from "@/services/pokedex";
 import pokedexUtilities from "@/utilities/pokedex";
+
+import {
+  pokedexReducer,
+  initialPokedexState,
+  pokedexActions,
+} from "@/reducers/pokedexReducer";
 
 import { type IBerryDataResponse, type IBerryItem } from "@/types";
 
@@ -10,13 +17,6 @@ import styles from "./Pokedex.module.scss";
 import AppPaper from "./common/AppPaper/AppPaper";
 import BerriesList from "./berries/BerriesList";
 import FirmnessMeter from "./firmness-meter/FirmnessMeter";
-
-import {
-  pokedexReducer,
-  initialPokedexState,
-  pokedexActions,
-} from "@/reducers/pokedexReducer";
-import { useDebounce } from "@/hooks/useDebounce";
 
 const Pokedex = () => {
   const [state, dispatch] = useReducer(pokedexReducer, initialPokedexState);
