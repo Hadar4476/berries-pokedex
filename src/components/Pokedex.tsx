@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useReducer, useRef } from "react";
-import { useDebounce } from "@/hooks/useDebounce";
+import useDebounce from "@/hooks/useDebounce";
 
 import { fetchBerryData, initPokedex } from "@/services/pokedex";
 import pokedexUtilities from "@/utilities/pokedex";
